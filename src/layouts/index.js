@@ -5,10 +5,13 @@ import styles from './index.css';
 
 class BasicLayout extends Component {
     render() {
+        // 允许有菜单
+        const array = ['/', '/my'];
+        const showBar = array.includes(this.props.location.pathname);
         return (
             <div className={styles.normal}>
                 {this.props.children}
-                <MyBar />
+                {showBar ? <MyBar/> : null}
             </div>
         )
     }
