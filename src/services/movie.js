@@ -6,9 +6,3 @@ export function movieList() {
         method: 'GET',
     });
 }
-
-export function movieSave() {
-    return request('/api/movie', {
-        method: 'POST',
-    });
-}

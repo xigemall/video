@@ -2,12 +2,14 @@ import {movieList} from '../services/movie';
 
 export default {
     namespace: 'movie',
-    state: [],
+    state:{
+        data:[],
+    },
     reducers: {
         save(state, action) {
             return {
                 ...state,
-                ...action.payload
+                data: action.payload
             }
         },
     },
