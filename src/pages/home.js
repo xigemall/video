@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
+import router from 'umi/router';
 import {Grid} from 'antd-mobile';
 import style from './home.css';
 
@@ -23,11 +24,14 @@ class Home extends Component {
 
     listData = (data) => {
         return data.map((item) => {
-            return {
-                icon: item.img,
-                text: item.name,
-            }
+            item.icon = item.img;
+            item.text = item.name;
+            return item;
         });
+    };
+
+    newMovieOnClick = (item, index) => {
+        router.push(`/movie/${item.id}`);
     };
 
     render() {
@@ -48,6 +52,7 @@ class Home extends Component {
                             </div>
                         </div>
                     )}
+                    onClick={this.newMovieOnClick}
                 />
             </div>
         )
